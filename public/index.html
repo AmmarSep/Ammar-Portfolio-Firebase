@@ -423,107 +423,134 @@
                                         <i class="ti-mobile icon-md"></i>
                                     </div>
                                     <div class="col-10 ">
-                                        <h6 class="d-inline">Phone : <br> <span class="text-muted">+ (91) 9751883398</span></h6>
-</div>
+                                        <h6 class="d-inline">Phone : <br> <span class="text-muted">+ (91)
+                                                9751883398</span></h6>
                                     </div>
-                                    <div class="row mb-2">
-                                        <div class="col-1 pt-1 mr-1">
-                                            <i class="ti-map-alt icon-md"></i>
-                                        </div>
-                                        <div class="col-10">
-                                            <h6 class="d-inline">Address :<br> <span class="text-muted">Bangalore,
-                                                    Karnataka</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-2">
-                                        <div class="col-1 pt-1 mr-1">
-                                            <i class="ti-envelope icon-md"></i>
-                                        </div>
-                                        <div class="col-10">
-                                            <h6 class="d-inline">Email :<br> <span
-                                                    class="text-muted">ssammar114@gmail.com</span></h6>
-                                        </div>
-                                    </div>
-                                    <button class="btn bg-primary w-lg" id="callMe"
-                                        onclick="callPhoneNumber('+91 9751883398')">Call me</button>
                                 </div>
+                                <div class="row mb-2">
+                                    <div class="col-1 pt-1 mr-1">
+                                        <i class="ti-map-alt icon-md"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <h6 class="d-inline">Address :<br> <span class="text-muted">Bangalore,
+                                                Karnataka</span></h6>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-1 pt-1 mr-1">
+                                        <i class="ti-envelope icon-md"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <h6 class="d-inline">Email :<br> <span
+                                                class="text-muted">ssammar114@gmail.com</span></h6>
+                                    </div>
+                                </div>
+                                <button class="btn bg-primary w-lg" id="callMe"
+                                    onclick="callPhoneNumber('+91 9751883398')">Call me</button>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
+            </div>
 
-                <!-- core  -->
-                <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-                <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+            <!-- core  -->
+            <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+            <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
 
-                <!-- bootstrap 3 affix -->
-                <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+            <!-- bootstrap 3 affix -->
+            <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
 
-                <!-- Isotope  -->
-                <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
+            <!-- Isotope  -->
+            <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
 
-                <!-- Ammar js -->
-                <script src="assets/js/johndoe.js"></script>
+            <!-- Ammar js -->
+            <script src="assets/js/johndoe.js"></script>
 
-                <!--  print resume button function-->
-                <!-- <script>
+            <!--  print resume button function-->
+            <!-- <script>
                 document.getElementById("printResumeButton").onclick = function () {
                     var myWindow = window.open("file:///C:/Users/aseippus/Downloads/Ammar CV - CGen.pdf");
                     myWindow.print();
                 }
             </script> -->
 
-                <script>
-                    document.getElementById("printResumeButton").onclick = function () {
-                        var myWindow = window.open("assets/docs/cv/Ammar_CV.pdf");
-                        myWindow.print();
+            <script>
+                document.getElementById("printResumeButton").onclick = function () {
+                    var myWindow = window.open("assets/docs/cv/Ammar_CV.pdf");
+                    myWindow.print();
+                }
+            </script>
+
+            <script>
+                document.getElementById("downloadButton").onclick = function () {
+                    var link = document.createElement("a");
+                    link.href = "assets/docs/cv/Ammar_CV.pdf";
+                    link.download = "Ammar_CV.pdf";
+                    link.click();
+                }
+            </script>
+            <script>
+                document.getElementById("downloadResume").onclick = function () {
+                    var link = document.createElement("a");
+                    link.href = "assets/docs/cv/Ammar_CV.pdf";
+                    link.download = "Ammar_CV.pdf";
+                    link.click();
+                }
+            </script>
+
+            <!--  hire me button function-->
+            <script>
+                const hireMeButton = document.getElementById("hireMe");
+                hireMeButton.addEventListener("click", () => {
+                    window.location.href = "mailto:ssammar114@gmail.com";
+                });
+            </script>
+
+            <!--  send message button function-->
+            <script>
+                function sendEmail() {
+                    var name = document.getElementById("name").value;
+                    var email = document.getElementById("email").value;
+                    var message = document.getElementById("message").value;
+
+                    if (name === '' || email === '' || message === '') {
+                        return false;
                     }
-                </script>
 
-                <script>
-                    document.getElementById("downloadButton").onclick = function () {
-                        var link = document.createElement("a");
-                        link.href = "assets/docs/cv/Ammar_CV.pdf";
-                        link.download = "Ammar_CV.pdf";
-                        link.click();
-                    }
-                </script>
-                <script>
-                    document.getElementById("downloadResume").onclick = function () {
-                        var link = document.createElement("a");
-                        link.href = "assets/docs/cv/Ammar_CV.pdf";
-                        link.download = "Ammar_CV.pdf";
-                        link.click();
-                    }
-                </script>
+                    var link = "mailto:ssammar114@gmail.com"
+                        + "?subject=" + encodeURIComponent("New message from " + name)
+                        + "&body=" + encodeURIComponent("Name: " + name + "\nEmail: " + email + "\nMessage: " + message);
 
-                <!--  hire me button function-->
-                <script>
-                    const hireMeButton = document.getElementById("hireMe");
-                    hireMeButton.addEventListener("click", () => {
-                        window.location.href = "mailto:ssammar114@gmail.com";
-                    });
-                </script>
+                    window.location.href = link;
+                }
+            </script>
+            <!-- <script>
+                /**
+                 * Calls the specified phone number.
+                 * @param {string} phoneNumber - The phone number to call.
+                 */
+                function callPhoneNumber(phoneNumber) {
+                    window.location.href = 'tel:' + phoneNumber;
+                }
+            </script> -->
 
-                <!--  send message button function-->
-                <script>
-                    function sendEmail() {
-                        var name = document.getElementById("name").value;
-                        var email = document.getElementById("email").value;
-                        var message = document.getElementById("message").value;
-
-                        if (name === '' || email === '' || message === '') {
-                            return false;
-                        }
-
-                        var link = "mailto:ssammar114@gmail.com"
-                            + "?subject=" + encodeURIComponent("New message from " + name)
-                            + "&body=" + encodeURIComponent("Name: " + name + "\nEmail: " + email + "\nMessage: " + message);
-
-                        window.location.href = link;
-                    }
-                </script>
+            <script>
+                function callPhoneNumber(phoneNumber) {
+                  // Check if the browser supports the Web Telephony API
+                  if ('mozTelephony' in navigator) {
+                    // For Firefox OS (B2G)
+                    var telephony = navigator.mozTelephony;
+                    telephony.dial(phoneNumber);
+                  } else if ('webkit' in navigator || 'standalone' in window.navigator) {
+                    // For WebKit-based browsers (e.g., Chrome on Android) and iOS standalone mode
+                    window.location.href = 'tel:' + phoneNumber;
+                  } else {
+                    // For other browsers, display a message or use a third-party service.
+                    alert('Phone call not supported on this browser.');
+                  }
+                }
+              </script>
 </body>
 
 </html>
