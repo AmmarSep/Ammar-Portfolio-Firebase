@@ -535,7 +535,7 @@
                 }
             </script> -->
 
-            <script>
+            <!-- <script>
                 function callPhoneNumber(phoneNumber) {
                   // Check if the browser supports the Web Telephony API
                   if ('mozTelephony' in navigator) {
@@ -545,6 +545,21 @@
                   } else if ('webkit' in navigator || 'standalone' in window.navigator) {
                     // For WebKit-based browsers (e.g., Chrome on Android) and iOS standalone mode
                     window.location.href = 'tel:' + phoneNumber;
+                  } else {
+                    // For other browsers, display a message or use a third-party service.
+                    alert('Phone call not supported on this browser.');
+                  }
+                }
+              </script> -->
+              <script>
+                function callPhoneNumber(phoneNumber) {
+                  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    // For mobile devices
+                    window.location.href = 'tel:' + phoneNumber;
+                  } else if ('mozTelephony' in navigator) {
+                    // For Firefox OS (B2G)
+                    var telephony = navigator.mozTelephony;
+                    telephony.dial(phoneNumber);
                   } else {
                     // For other browsers, display a message or use a third-party service.
                     alert('Phone call not supported on this browser.');
