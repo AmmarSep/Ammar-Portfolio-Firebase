@@ -551,21 +551,34 @@
                   }
                 }
               </script> -->
-              <script>
+            <script>
                 function callPhoneNumber(phoneNumber) {
-                  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    // For mobile devices
-                    window.location.href = 'tel:' + phoneNumber;
-                  } else if ('mozTelephony' in navigator) {
-                    // For Firefox OS (B2G)
-                    var telephony = navigator.mozTelephony;
-                    telephony.dial(phoneNumber);
-                  } else {
-                    // For other browsers, display a message or use a third-party service.
-                    alert('Phone call not supported on this browser.');
-                  }
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                        // For mobile devices
+                        if (/Android/i.test(navigator.userAgent)) {
+                            // For Android devices
+                            window.open('tel:' + phoneNumber);
+                        } else {
+                            // For iOS devices
+                            window.location.href = 'tel:' + phoneNumber;
+                        }
+                    } else if (/Chrome|Edge|Safari/i.test(navigator.userAgent)) {
+                        console.log('Inside Chrome, Edge, or Safari block');
+                        // For Chrome, Edge, and Safari browsers
+                        // window.location.href = 'https://wa.me/' + phoneNumber;
+                        window.open('https://wa.me/' + +919751883398);
+                    } else if (/Firefox/i.test(navigator.userAgent)) {
+                        console.log('Inside Firefox');
+                        // For Firefox OS (B2G)
+                        window.open('https://wa.me/' + +919751883398);
+                    } else {
+                        console.log('Inside other browsers block');
+
+                        // For other browsers, display a message or use a third-party service.
+                        alert('Phone call not supported on this browser.');
+                    }
                 }
-              </script>
+            </script>
 </body>
 
 </html>
