@@ -446,7 +446,7 @@
                                     </div>
                                 </div>
                                 <button class="btn bg-primary w-lg" id="callMe"
-                                    onclick="callPhoneNumber('+91 9751883398')">Call me</button>
+                                    onclick="callPhoneNumber('+919751883398')">Call me</button>
                             </div>
                         </div>
                     </div>
@@ -467,21 +467,15 @@
             <!-- Ammar js -->
             <script src="assets/js/johndoe.js"></script>
 
-            <!--  print resume button function-->
-            <!-- <script>
-                document.getElementById("printResumeButton").onclick = function () {
-                    var myWindow = window.open("file:///C:/Users/aseippus/Downloads/Ammar CV - CGen.pdf");
-                    myWindow.print();
-                }
-            </script> -->
 
+            <!-- This script opens a new window with the PDF file "Ammar_CV.pdf" and prints it when the "printResumeButton" is clicked. -->
             <script>
                 document.getElementById("printResumeButton").onclick = function () {
                     var myWindow = window.open("assets/docs/cv/Ammar_CV.pdf");
                     myWindow.print();
                 }
             </script>
-
+            <!-- This script creates a download link for a PDF file and triggers the download when the "downloadButton" element is clicked. -->
             <script>
                 document.getElementById("downloadButton").onclick = function () {
                     var link = document.createElement("a");
@@ -490,6 +484,7 @@
                     link.click();
                 }
             </script>
+            <!-- This script creates a download link for the resume file and triggers the download when the "downloadResume" element is clicked. -->
             <script>
                 document.getElementById("downloadResume").onclick = function () {
                     var link = document.createElement("a");
@@ -498,8 +493,8 @@
                     link.click();
                 }
             </script>
-
             <!--  hire me button function-->
+            <!-- This script attaches a click event listener to the "hireMe" button. When the button is clicked, it redirects the user to their default email client with the recipient email address pre-filled. -->
             <script>
                 const hireMeButton = document.getElementById("hireMe");
                 hireMeButton.addEventListener("click", () => {
@@ -508,6 +503,12 @@
             </script>
 
             <!--  send message button function-->
+            <!--
+                /**
+                 * Sends an email with the provided name, email, and message.
+                 * If any of the fields are empty, the email will not be sent.
+                 */
+            -->
             <script>
                 function sendEmail() {
                     var name = document.getElementById("name").value;
@@ -525,32 +526,14 @@
                     window.location.href = link;
                 }
             </script>
-            <!-- <script>
-                /**
-                 * Calls the specified phone number.
-                 * @param {string} phoneNumber - The phone number to call.
-                 */
-                function callPhoneNumber(phoneNumber) {
-                    window.location.href = 'tel:' + phoneNumber;
-                }
-            </script> -->
-
-            <!-- <script>
-                function callPhoneNumber(phoneNumber) {
-                  // Check if the browser supports the Web Telephony API
-                  if ('mozTelephony' in navigator) {
-                    // For Firefox OS (B2G)
-                    var telephony = navigator.mozTelephony;
-                    telephony.dial(phoneNumber);
-                  } else if ('webkit' in navigator || 'standalone' in window.navigator) {
-                    // For WebKit-based browsers (e.g., Chrome on Android) and iOS standalone mode
-                    window.location.href = 'tel:' + phoneNumber;
-                  } else {
-                    // For other browsers, display a message or use a third-party service.
-                    alert('Phone call not supported on this browser.');
-                  }
-                }
-              </script> -->
+            <!-- 
+                This script contains a function called callPhoneNumber that is used to make phone calls or open WhatsApp on different devices and browsers.
+                It checks the user agent to determine the device and browser being used, and performs the appropriate action based on the device/browser combination.
+                If the user agent matches any of the mobile devices, it opens the default phone app with the provided phone number.
+                If the user agent matches Chrome, Edge, or Safari, it opens a WhatsApp chat with the provided phone number.
+                If the user agent matches Firefox, it also opens a WhatsApp chat with the provided phone number.
+                For other browsers, it displays an alert message indicating that phone calls are not supported.
+            -->
             <script>
                 function callPhoneNumber(phoneNumber) {
                     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -566,11 +549,11 @@
                         console.log('Inside Chrome, Edge, or Safari block');
                         // For Chrome, Edge, and Safari browsers
                         // window.location.href = 'https://wa.me/' + phoneNumber;
-                        window.open('https://wa.me/' + +919751883398);
+                        window.open('https://wa.me/' + phoneNumber);
                     } else if (/Firefox/i.test(navigator.userAgent)) {
                         console.log('Inside Firefox');
                         // For Firefox OS (B2G)
-                        window.open('https://wa.me/' + +919751883398);
+                        window.open('https://wa.me/' + phoneNumber);
                     } else {
                         console.log('Inside other browsers block');
 
